@@ -1,0 +1,90 @@
+{
+  "mode": "saint_live",
+  "n_rows": 94,
+  "n_features": 2,
+  "selected_pfas_cols": [
+    "pfas_96",
+    "pfas_101"
+  ],
+  "preprocessing": "standardize",
+  "scaler_info": {
+    "type": "standardize",
+    "mean": [
+      0.6322354132190664,
+      0.6243339231673707
+    ],
+    "scale": [
+      0.6036690645710355,
+      0.6997987145602974
+    ]
+  },
+  "embedding_dim": 8,
+  "embedding_shape": [
+    94,
+    8
+  ],
+  "device": "cpu",
+  "duration_seconds": 8.674,
+  "training_history": [
+    {
+      "epoch": 1,
+      "loss": 2.0872066020965576
+    },
+    {
+      "epoch": 2,
+      "loss": 2.2249982357025146
+    },
+    {
+      "epoch": 3,
+      "loss": 0.9688443541526794
+    },
+    {
+      "epoch": 4,
+      "loss": 1.1366980075836182
+    },
+    {
+      "epoch": 5,
+      "loss": 0.9541066884994507
+    },
+    {
+      "epoch": 6,
+      "loss": 1.6150319576263428
+    },
+    {
+      "epoch": 7,
+      "loss": 1.7017381191253662
+    },
+    {
+      "epoch": 8,
+      "loss": 1.1293971538543701
+    }
+  ],
+  "config": {
+    "embedding_dim": 8,
+    "depth": 2,
+    "heads": 2,
+    "ff_mult": 4,
+    "dropout": 0.1,
+    "hidden_dim": 64,
+    "batch_size": 512,
+    "epochs": 8,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "mask_prob": 0.15,
+    "log1p_transform": true,
+    "clip_negative_to_zero": true,
+    "use_cache": true,
+    "cache_dir": ".saint_live_cache",
+    "seed": 42,
+    "pooling": "mean",
+    "verbose": true
+  },
+  "cache_key": "d063b0d4be1d18c38a9988060289e625dfcd887bff11560d413137812c856f30",
+  "cache_hit": false,
+  "cache_files": {
+    "npz": ".saint_live_cache\\d063b0d4be1d18c38a9988060289e625dfcd887bff11560d413137812c856f30.npz",
+    "json": ".saint_live_cache\\d063b0d4be1d18c38a9988060289e625dfcd887bff11560d413137812c856f30.json",
+    "npzExists": true,
+    "jsonExists": true
+  }
+}

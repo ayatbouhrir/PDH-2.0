@@ -1,0 +1,40 @@
+{
+  "mode": "saint_live",
+  "n_rows": 87281,
+  "n_features": 5,
+  "selected_pfas_cols": [
+    "pfas_371",
+    "pfas_372",
+    "pfas_376",
+    "pfas_380",
+    "pfas_389"
+  ],
+  "preprocessing": "none",
+  "scaler_info": {
+    "type": "none"
+  },
+  "embedding_dim": 8,
+  "device": "mps",
+  "duration_seconds": 24.323,
+  "config": {
+    "embedding_dim": 8,
+    "depth": 2,
+    "heads": 2,
+    "ff_mult": 4,
+    "dropout": 0.1,
+    "hidden_dim": 64,
+    "batch_size": 512,
+    "epochs": 8,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "mask_prob": 0.15,
+    "log1p_transform": true,
+    "clip_negative_to_zero": true,
+    "use_cache": true,
+    "cache_dir": ".saint_live_cache",
+    "seed": 42,
+    "pooling": "mean",
+    "verbose": true
+  },
+  "cache_key": "5d92e4d18036314a89f16e25344afdf35f6b410ad91f770953ce5810f1334407"
+}

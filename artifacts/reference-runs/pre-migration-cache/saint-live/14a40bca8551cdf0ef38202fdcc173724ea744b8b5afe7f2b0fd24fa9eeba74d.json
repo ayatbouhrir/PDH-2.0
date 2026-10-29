@@ -1,0 +1,81 @@
+{
+  "mode": "saint_live",
+  "n_rows": 87281,
+  "n_features": 1,
+  "selected_pfas_cols": [
+    "pfas_413"
+  ],
+  "preprocessing": "none",
+  "scaler_info": {
+    "type": "none"
+  },
+  "embedding_dim": 8,
+  "embedding_shape": [
+    87281,
+    8
+  ],
+  "device": "mps",
+  "duration_seconds": 17.071,
+  "training_history": [
+    {
+      "epoch": 1,
+      "loss": 2.671412870549319
+    },
+    {
+      "epoch": 2,
+      "loss": 2.899379268550036
+    },
+    {
+      "epoch": 3,
+      "loss": 2.9087741761876824
+    },
+    {
+      "epoch": 4,
+      "loss": 2.895870413173709
+    },
+    {
+      "epoch": 5,
+      "loss": 2.8568408177261464
+    },
+    {
+      "epoch": 6,
+      "loss": 2.7569455277850055
+    },
+    {
+      "epoch": 7,
+      "loss": 2.9029549436088193
+    },
+    {
+      "epoch": 8,
+      "loss": 2.7236064072937993
+    }
+  ],
+  "config": {
+    "embedding_dim": 8,
+    "depth": 2,
+    "heads": 2,
+    "ff_mult": 4,
+    "dropout": 0.1,
+    "hidden_dim": 64,
+    "batch_size": 512,
+    "epochs": 8,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "mask_prob": 0.15,
+    "log1p_transform": true,
+    "clip_negative_to_zero": true,
+    "use_cache": true,
+    "cache_dir": ".saint_live_cache",
+    "seed": 42,
+    "pooling": "mean",
+    "verbose": true
+  },
+  "cache_key": "14a40bca8551cdf0ef38202fdcc173724ea744b8b5afe7f2b0fd24fa9eeba74d",
+  "cache_hit": false,
+  "cache_files": {
+    "npz": ".saint_live_cache/14a40bca8551cdf0ef38202fdcc173724ea744b8b5afe7f2b0fd24fa9eeba74d.npz",
+    "json": ".saint_live_cache/14a40bca8551cdf0ef38202fdcc173724ea744b8b5afe7f2b0fd24fa9eeba74d.json",
+    "npzExists": true,
+    "jsonExists": true
+  }
+}

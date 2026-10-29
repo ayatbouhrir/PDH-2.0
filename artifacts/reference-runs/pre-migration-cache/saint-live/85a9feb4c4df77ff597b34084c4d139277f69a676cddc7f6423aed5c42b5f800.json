@@ -1,0 +1,86 @@
+{
+  "mode": "saint_live",
+  "n_rows": 87281,
+  "n_features": 6,
+  "selected_pfas_cols": [
+    "pfas_224",
+    "pfas_220",
+    "pfas_218",
+    "pfas_214",
+    "pfas_212",
+    "pfas_222"
+  ],
+  "preprocessing": "none",
+  "scaler_info": {
+    "type": "none"
+  },
+  "embedding_dim": 8,
+  "embedding_shape": [
+    87281,
+    8
+  ],
+  "device": "mps",
+  "duration_seconds": 16.475,
+  "training_history": [
+    {
+      "epoch": 1,
+      "loss": 0.18169976523069784
+    },
+    {
+      "epoch": 2,
+      "loss": 0.1598219269674206
+    },
+    {
+      "epoch": 3,
+      "loss": 0.16121803236068688
+    },
+    {
+      "epoch": 4,
+      "loss": 0.16199858795595493
+    },
+    {
+      "epoch": 5,
+      "loss": 0.17278317375277435
+    },
+    {
+      "epoch": 6,
+      "loss": 0.15431336647890814
+    },
+    {
+      "epoch": 7,
+      "loss": 0.1554151802114075
+    },
+    {
+      "epoch": 8,
+      "loss": 0.16420719958569485
+    }
+  ],
+  "config": {
+    "embedding_dim": 8,
+    "depth": 2,
+    "heads": 2,
+    "ff_mult": 4,
+    "dropout": 0.1,
+    "hidden_dim": 64,
+    "batch_size": 512,
+    "epochs": 8,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "mask_prob": 0.15,
+    "log1p_transform": true,
+    "clip_negative_to_zero": true,
+    "use_cache": true,
+    "cache_dir": ".saint_live_cache",
+    "seed": 42,
+    "pooling": "mean",
+    "verbose": true
+  },
+  "cache_key": "85a9feb4c4df77ff597b34084c4d139277f69a676cddc7f6423aed5c42b5f800",
+  "cache_hit": false,
+  "cache_files": {
+    "npz": ".saint_live_cache/85a9feb4c4df77ff597b34084c4d139277f69a676cddc7f6423aed5c42b5f800.npz",
+    "json": ".saint_live_cache/85a9feb4c4df77ff597b34084c4d139277f69a676cddc7f6423aed5c42b5f800.json",
+    "npzExists": true,
+    "jsonExists": true
+  }
+}

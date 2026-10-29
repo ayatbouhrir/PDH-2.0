@@ -1,0 +1,111 @@
+{
+  "mode": "saint_live",
+  "n_rows": 87281,
+  "n_features": 9,
+  "selected_pfas_cols": [
+    "pfas_3",
+    "pfas_4",
+    "pfas_527",
+    "pfas_530",
+    "pfas_534",
+    "pfas_535",
+    "pfas_539",
+    "pfas_543",
+    "pfas_546"
+  ],
+  "preprocessing": "normalize",
+  "scaler_info": {
+    "type": "normalize",
+    "min": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.4426950216293335,
+      2.12764310836792,
+      0.09478118270635605,
+      1.0,
+      1.0,
+      1.0,
+      0.2710850238800049,
+      0.08020249009132385,
+      0.3106674551963806
+    ]
+  },
+  "embedding_dim": 8,
+  "embedding_shape": [
+    87281,
+    8
+  ],
+  "device": "mps",
+  "duration_seconds": 25.281,
+  "training_history": [
+    {
+      "epoch": 1,
+      "loss": 0.07087419477797914
+    },
+    {
+      "epoch": 2,
+      "loss": 0.01133707165445762
+    },
+    {
+      "epoch": 3,
+      "loss": 0.006546593336551858
+    },
+    {
+      "epoch": 4,
+      "loss": 0.0044987671926879046
+    },
+    {
+      "epoch": 5,
+      "loss": 0.0033314078079525666
+    },
+    {
+      "epoch": 6,
+      "loss": 0.0025735071932417694
+    },
+    {
+      "epoch": 7,
+      "loss": 0.0020564840847833287
+    },
+    {
+      "epoch": 8,
+      "loss": 0.0017173689979330055
+    }
+  ],
+  "config": {
+    "embedding_dim": 8,
+    "depth": 2,
+    "heads": 2,
+    "ff_mult": 4,
+    "dropout": 0.1,
+    "hidden_dim": 64,
+    "batch_size": 512,
+    "epochs": 8,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "mask_prob": 0.15,
+    "log1p_transform": true,
+    "clip_negative_to_zero": true,
+    "use_cache": true,
+    "cache_dir": ".saint_live_cache",
+    "seed": 42,
+    "pooling": "mean",
+    "verbose": true
+  },
+  "cache_key": "baddb730942019d96614b87ad35ef44c15d129c3d7122bfa116bf851e833d214",
+  "cache_hit": false,
+  "cache_files": {
+    "npz": ".saint_live_cache/baddb730942019d96614b87ad35ef44c15d129c3d7122bfa116bf851e833d214.npz",
+    "json": ".saint_live_cache/baddb730942019d96614b87ad35ef44c15d129c3d7122bfa116bf851e833d214.json",
+    "npzExists": true,
+    "jsonExists": true
+  }
+}

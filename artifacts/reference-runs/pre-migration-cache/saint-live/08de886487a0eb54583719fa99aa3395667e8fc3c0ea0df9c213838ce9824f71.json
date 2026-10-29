@@ -1,0 +1,111 @@
+{
+  "mode": "saint_live",
+  "n_rows": 87281,
+  "n_features": 9,
+  "selected_pfas_cols": [
+    "pfas_3",
+    "pfas_4",
+    "pfas_527",
+    "pfas_530",
+    "pfas_534",
+    "pfas_535",
+    "pfas_539",
+    "pfas_543",
+    "pfas_546"
+  ],
+  "preprocessing": "standardize",
+  "scaler_info": {
+    "type": "standardize",
+    "mean": [
+      1.5883117344315478e-05,
+      6.422272088379325e-05,
+      0.001268792311658267,
+      0.0,
+      0.0,
+      0.0,
+      4.346008299743234e-05,
+      0.012562153239054121,
+      0.00035951824436045046
+    ],
+    "scale": [
+      0.003317994237871778,
+      0.004699066784209524,
+      0.11307106661181326,
+      1.0,
+      1.0,
+      1.0,
+      0.012491244421159176,
+      0.2844146391775864,
+      0.029982446470917967
+    ]
+  },
+  "embedding_dim": 8,
+  "embedding_shape": [
+    87281,
+    8
+  ],
+  "device": "mps",
+  "duration_seconds": 23.591,
+  "training_history": [
+    {
+      "epoch": 1,
+      "loss": 1.1246206656817281
+    },
+    {
+      "epoch": 2,
+      "loss": 0.4878846174487245
+    },
+    {
+      "epoch": 3,
+      "loss": 0.5271006017509434
+    },
+    {
+      "epoch": 4,
+      "loss": 0.4825066614117234
+    },
+    {
+      "epoch": 5,
+      "loss": 0.41192973275500083
+    },
+    {
+      "epoch": 6,
+      "loss": 0.5153869844548273
+    },
+    {
+      "epoch": 7,
+      "loss": 0.9009109734426857
+    },
+    {
+      "epoch": 8,
+      "loss": 0.6510406947716504
+    }
+  ],
+  "config": {
+    "embedding_dim": 8,
+    "depth": 2,
+    "heads": 2,
+    "ff_mult": 4,
+    "dropout": 0.1,
+    "hidden_dim": 64,
+    "batch_size": 512,
+    "epochs": 8,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "mask_prob": 0.15,
+    "log1p_transform": true,
+    "clip_negative_to_zero": true,
+    "use_cache": true,
+    "cache_dir": ".saint_live_cache",
+    "seed": 42,
+    "pooling": "mean",
+    "verbose": true
+  },
+  "cache_key": "08de886487a0eb54583719fa99aa3395667e8fc3c0ea0df9c213838ce9824f71",
+  "cache_hit": false,
+  "cache_files": {
+    "npz": ".saint_live_cache/08de886487a0eb54583719fa99aa3395667e8fc3c0ea0df9c213838ce9824f71.npz",
+    "json": ".saint_live_cache/08de886487a0eb54583719fa99aa3395667e8fc3c0ea0df9c213838ce9824f71.json",
+    "npzExists": true,
+    "jsonExists": true
+  }
+}
