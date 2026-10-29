@@ -1,4 +1,4 @@
-# Validation de la réorganisation — Windows, 29 octobre 2026
+# Validation 
 
 ## Résultat des contrôles
 
