@@ -1,0 +1,55 @@
+RÉSUMÉ FP-GROWTH PFAS
+=====================
+
+Shape dataset original : (622680, 21)
+Shape dataset préparé  : (610038, 11)
+
+Colonnes utilisées :
+- category
+- country
+- type
+- sector
+- source_type
+- data_collection_method
+- dataset_name
+- matrix
+- unit
+- pfas_sum_cat
+- periode
+
+Paramètres globaux :
+- min_support_global = 0.02
+- min_confidence_global = 0.6
+- max_rule_length = 3
+
+Paramètres stratifiés :
+- min_support_stratified = 0.05
+- min_confidence_stratified = 0.6
+- min_rows_per_strate = 500
+
+Nombre de règles globales : 2354
+Nombre de règles stratifiées : 75324
+
+TOP 10 RÈGLES GLOBALES :
+- Si data collection method data collection method public data  api, matrix matrix surface water, alors dataset name dataset name france naiades dans 100.0% des cas. Support = 2.56%. Lift = 37.19.
+- Si dataset name dataset name france naiades, alors data collection method data collection method public data  api, matrix matrix surface water dans 95.15% des cas. Support = 2.56%. Lift = 37.19.
+- Si matrix matrix soil, dataset name dataset name flanders dov, alors unit unit ngkg dw dans 97.99% des cas. Support = 3.97%. Lift = 22.22.
+- Si unit unit ngkg dw, alors matrix matrix soil, dataset name dataset name flanders dov dans 90.11% des cas. Support = 3.97%. Lift = 22.22.
+- Si matrix matrix soil, country country belgium, alors unit unit ngkg dw dans 93.03% des cas. Support = 3.97%. Lift = 21.1.
+- Si unit unit ngkg dw, alors matrix matrix soil, country country belgium dans 90.11% des cas. Support = 3.97%. Lift = 21.1.
+- Si unit unit ngkg dw, alors matrix matrix soil, data collection method data collection method public data  scraping dans 90.11% des cas. Support = 3.97%. Lift = 17.67.
+- Si matrix matrix soil, data collection method data collection method public data  scraping, alors unit unit ngkg dw dans 77.9% des cas. Support = 3.97%. Lift = 17.67.
+- Si data collection method data collection method public data  scraping, unit unit ngkg dw, alors matrix matrix soil dans 94.8% des cas. Support = 3.97%. Lift = 17.26.
+- Si dataset name dataset name flanders dov, unit unit ngkg dw, alors matrix matrix soil dans 94.8% des cas. Support = 3.97%. Lift = 17.26.
+
+TOP 10 RÈGLES STRATIFIÉES :
+- Dans matrix = wastewater : Si data collection method data collection method press inquiry, alors dataset name dataset name denmark ministry environment wwtp dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
+- Dans matrix = wastewater : Si dataset name dataset name denmark ministry environment wwtp, alors data collection method data collection method press inquiry dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
+- Dans matrix = wastewater : Si source type source type authorities, data collection method data collection method press inquiry, alors dataset name dataset name denmark ministry environment wwtp dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
+- Dans matrix = wastewater : Si source type source type authorities, dataset name dataset name denmark ministry environment wwtp, alors data collection method data collection method press inquiry dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
+- Dans matrix = wastewater : Si data collection method data collection method press inquiry, alors source type source type authorities, dataset name dataset name denmark ministry environment wwtp dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
+- Dans matrix = wastewater : Si dataset name dataset name denmark ministry environment wwtp, alors source type source type authorities, data collection method data collection method press inquiry dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
+- Dans matrix = wastewater : Si data collection method data collection method press inquiry, type type sampling location, alors dataset name dataset name denmark ministry environment wwtp dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
+- Dans matrix = wastewater : Si type type sampling location, dataset name dataset name denmark ministry environment wwtp, alors data collection method data collection method press inquiry dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
+- Dans matrix = wastewater : Si data collection method data collection method press inquiry, alors type type sampling location, dataset name dataset name denmark ministry environment wwtp dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
+- Dans matrix = wastewater : Si dataset name dataset name denmark ministry environment wwtp, alors data collection method data collection method press inquiry, type type sampling location dans 100.0% des cas. Support = 5.39%. Lift = 18.57.
