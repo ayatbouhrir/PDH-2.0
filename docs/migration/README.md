@@ -1,4 +1,4 @@
-# Réorganisation du 29 octobre 2026
+# Réorganisation 
 
 La migration est réalisée sur place, après une sauvegarde complète vérifiée.
 Elle porte sur les dossiers, noms, imports, chemins et commandes. Les calculs,
