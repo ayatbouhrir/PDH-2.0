@@ -1,0 +1,58 @@
+{
+  "@context": "https://w3id.org/codemeta/3.0",
+  "type": "SoftwareSourceCode",
+  "applicationCategory": "Computer Science",
+  "author": [
+    {
+      "id": "https://orcid.org/0000-0002-9203-4229",
+      "type": "Person",
+      "affiliation": {
+        "type": "Organization",
+        "name": "LIRMM, Université de Montpellier, CNRS, Montpellier, France"
+      },
+      "email": "chen.fati@gmail.com",
+      "familyName": "Chen",
+      "givenName": "Fati"
+    },
+    {
+      "id": "https://orcid.org/0000-0002-8277-3490",
+      "type": "Person",
+      "affiliation": {
+        "type": "Organization",
+        "name": "LIRMM, Université de Montpellier, CNRS, Montpellier, France"
+      },
+      "email": "pascal.poncelet@lirmm.fr",
+      "familyName": "Poncelet",
+      "givenName": "Pascal"
+    },
+    {
+      "id": "https://orcid.org/0000-0001-7068-176X",
+      "type": "Person",
+      "affiliation": {
+        "type": "Organization",
+        "name": "Groupe AMIS, Université Paul-Valéry Montpellier 3, Montpellier, France"
+      },
+      "email": "arnaud.sallaberry@lirmm.fr",
+      "familyName": "Sallaberry",
+      "givenName": "Arnaud"
+    }
+  ],
+  "codeRepository": "git+https://github.com/stardisblue/fsac.git",
+  "dateCreated": "2021-09-25",
+  "datePublished": "2021-09-25",
+  "description": "Fast Spatial Agglomerative Clustering Algorithm.",
+  "downloadUrl": "https://github.com/stardisblue/prosovis/archive/refs/heads/master.zip",
+  "funder": {
+    "type": "Organization",
+    "name": "Agence nationale de la recherche, France"
+  },
+  "keywords": ["information visualisation", "spatial clustering"],
+  "license": "https://spdx.org/licenses/MIT",
+  "name": "FSAC",
+  "programmingLanguage": ["typescript", "javascript"],
+  "relatedLink": "https://observablehq.com/@stardisblue/fsac",
+  "runtimePlatform": "browser",
+  "developmentStatus": "active",
+  "funding": "ANR-17-CE38-0013",
+  "issueTracker": "https://github.com/stardisblue/fsac/issues"
+}

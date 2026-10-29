@@ -1,0 +1,56 @@
+name: Cross-platform launcher
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  native-install-and-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 35
+    env:
+      PYTHONUTF8: '1'
+      UV_LINK_MODE: copy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install bootstrap runtime
+        run: python -m pip install uv==0.12.19
+      - name: Verify reorganized layout and Python sources
+        run: python scripts/verify_layout.py
+      - name: Prepare without Docker and validate the build
+        run: python run.py --setup-only --data sample --check
+      - name: Launcher regression checks
+        shell: bash
+        run: |
+          if [ -x .venv/bin/python ]; then
+            .venv/bin/python -m unittest discover -s tests -v
+          else
+            .venv/Scripts/python.exe -m unittest discover -s tests -v
+          fi
+      - name: Start and exercise application features
+        run: python run.py --no-open --test
+      - name: Verify repeatable startup
+        run: python run.py --no-open
+      - name: Stop only the project services
+        if: always()
+        run: python run.py --stop
+      - name: Keep diagnostic logs (exclude credentials and database files)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: launcher-${{ matrix.os }}
+          path: |
+            .local/*log
+            .local/test-results.json
+            .local/reorganisation-*.json

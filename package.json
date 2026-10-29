@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start:local": "node scripts/launch.mjs",
+    "test:local": "node scripts/launch.mjs --no-open --test",
+    "stop:local": "node scripts/launch.mjs --stop",
+    "doctor": "node scripts/launch.mjs --doctor"
+  },
+  "name": "pfas-data-hub-orchestration",
+  "private": true
+}

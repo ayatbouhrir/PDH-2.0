@@ -1,0 +1,194 @@
+from __future__ import annotations
+
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+
+
+BASE_DIR = Path(__file__).resolve().parent
+OUT_DIR = BASE_DIR.parents[1] / "artifacts/experiments/saint-tabpfn-comparison"
+
+METRICS_PATH = OUT_DIR / "metrics" / "saint_tabpfn_metrics.csv"
+ASSIGNMENTS_PATH = OUT_DIR / "saint_tabpfn_assignments_wide.csv"
+
+EMBEDDINGS_DIR = OUT_DIR / "embeddings"
+FIGURES_DIR = OUT_DIR / "figures"
+FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+
+RANDOM_STATE = 42
+MAX_SCATTER_POINTS = 15000
+
+
+def save_bar_plot(df: pd.DataFrame, value_col: str, title: str, filename: str) -> None:
+    plot_df = df.dropna(subset=[value_col]).copy()
+
+    if plot_df.empty:
+        print(f"[SKIP] Aucun résultat pour {value_col}")
+        return
+
+    labels = plot_df["method"].astype(str).tolist()
+    values = plot_df[value_col].astype(float).to_numpy()
+
+    plt.figure(figsize=(13, 6))
+    plt.bar(labels, values)
+    plt.xticks(rotation=35, ha="right")
+    plt.ylabel(value_col)
+    plt.title(title)
+    plt.tight_layout()
+
+    path = FIGURES_DIR / filename
+    plt.savefig(path, dpi=200)
+    plt.close()
+
+    print(f"[OK] {path}")
+
+
+def save_cluster_size_plots(assignments: pd.DataFrame) -> None:
+    point_col = "point_id"
+
+    for col in assignments.columns:
+        if col == point_col:
+            continue
+
+        counts = assignments[col].value_counts().sort_index()
+
+        plt.figure(figsize=(12, 5))
+        plt.bar(counts.index.astype(str), counts.values)
+        plt.xlabel("Cluster")
+        plt.ylabel("Nombre de points")
+        plt.title(f"Taille des clusters — {col}")
+        plt.tight_layout()
+
+        path = FIGURES_DIR / f"cluster_sizes_{col}.png"
+        plt.savefig(path, dpi=200)
+        plt.close()
+
+        print(f"[OK] {path}")
+
+
+def load_embedding(name: str) -> pd.DataFrame:
+    path = EMBEDDINGS_DIR / f"{name}_87281.parquet"
+
+    if not path.exists():
+        raise FileNotFoundError(f"Embedding absent: {path}")
+
+    df = pd.read_parquet(path)
+    df["point_id"] = pd.to_numeric(df["point_id"], errors="coerce")
+    df = df.dropna(subset=["point_id"]).copy()
+    df["point_id"] = df["point_id"].astype(np.int64)
+
+    return df
+
+
+def save_2d_embedding_plots(assignments: pd.DataFrame, representation: str) -> None:
+    emb = load_embedding(representation)
+
+    merged = emb.merge(assignments, on="point_id", how="inner")
+
+    feature_cols = [c for c in emb.columns if c != "point_id"]
+
+    if len(merged) > MAX_SCATTER_POINTS:
+        merged = merged.sample(
+            n=MAX_SCATTER_POINTS,
+            random_state=RANDOM_STATE,
+        ).reset_index(drop=True)
+
+    x = merged[feature_cols].to_numpy(dtype=np.float32)
+    x = np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0)
+    x = StandardScaler().fit_transform(x)
+
+    coords = PCA(n_components=2, random_state=RANDOM_STATE).fit_transform(x)
+
+    method_cols = [
+        c for c in assignments.columns
+        if c.startswith(f"{representation}_")
+    ]
+
+    for method_col in method_cols:
+        labels = merged[method_col].to_numpy()
+
+        plt.figure(figsize=(9, 7))
+        scatter = plt.scatter(
+            coords[:, 0],
+            coords[:, 1],
+            c=labels,
+            s=4,
+            alpha=0.75,
+        )
+        plt.xlabel("PCA 1")
+        plt.ylabel("PCA 2")
+        plt.title(f"Projection 2D — {method_col}")
+        plt.colorbar(scatter, label="Cluster")
+        plt.tight_layout()
+
+        path = FIGURES_DIR / f"embedding_2d_{method_col}.png"
+        plt.savefig(path, dpi=220)
+        plt.close()
+
+        print(f"[OK] {path}")
+
+
+def main() -> None:
+    if not METRICS_PATH.exists():
+        raise FileNotFoundError(f"Fichier métriques absent: {METRICS_PATH}")
+
+    if not ASSIGNMENTS_PATH.exists():
+        raise FileNotFoundError(f"Fichier assignments absent: {ASSIGNMENTS_PATH}")
+
+    metrics = pd.read_csv(METRICS_PATH)
+    assignments = pd.read_csv(ASSIGNMENTS_PATH)
+
+    print("[INFO] Metrics:")
+    print(metrics)
+
+    save_bar_plot(
+        metrics,
+        "silhouette",
+        "Comparaison des méthodes — Silhouette Score",
+        "metrics_silhouette.png",
+    )
+
+    save_bar_plot(
+        metrics,
+        "davies_bouldin",
+        "Comparaison des méthodes — Davies-Bouldin Index",
+        "metrics_davies_bouldin.png",
+    )
+
+    save_bar_plot(
+        metrics,
+        "calinski_harabasz",
+        "Comparaison des méthodes — Calinski-Harabasz Score",
+        "metrics_calinski_harabasz.png",
+    )
+
+    save_bar_plot(
+        metrics,
+        "n_clusters",
+        "Nombre de clusters par méthode",
+        "metrics_n_clusters.png",
+    )
+
+    save_bar_plot(
+        metrics,
+        "noise_ratio",
+        "Ratio de bruit par méthode",
+        "metrics_noise_ratio.png",
+    )
+
+    save_cluster_size_plots(assignments)
+
+    save_2d_embedding_plots(assignments, "saint")
+    save_2d_embedding_plots(assignments, "tabpfn")
+
+    print("\n[OK] Tous les graphes sont générés dans:")
+    print(FIGURES_DIR)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,19 @@
+
+/frontend/full copie.csv
+/artifacts/experiments/saint-tabpfn-comparison/embeddings/tabpfn_87281.parquet
+.DS_Store
+
+/frontend/full.csv
+
+.venv/
+.local/
+**/.env
+**/.env.*
+!**/.env.example
+**/__pycache__/
+frontend/node_modules/
+frontend/.svelte-kit/
+frontend/*-output.log
+archives/generated/
+archives/system-files/
+archives/logs/

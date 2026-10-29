@@ -1,0 +1,14 @@
+{
+  "backup": "D:\\pfas-backups\\pfas-data-hub-analytics-main-20261029-174830",
+  "files_before": 63254,
+  "mapped_files": 63254,
+  "moved_files": 30923,
+  "destinations_present": 63254,
+  "missing_files": 0,
+  "preserved_artifacts_and_vendor_files": 229,
+  "python_versions_preserved": true,
+  "frontend_versions_preserved": true,
+  "points": 15183,
+  "nuts_associations": 162735,
+  "reference_analyses": 10
+}

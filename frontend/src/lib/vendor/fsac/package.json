@@ -1,0 +1,31 @@
+{
+  "name": "fsac",
+  "homepage": "https://github.com/stardisblue/fsac",
+  "version": "1.0.1",
+  "main": "dist/index.min.js",
+  "module": "dist/index.js",
+  "browser": "dist/index.cjs.js",
+  "jsdelivr": "dist/index.min.js",
+  "unpkg": "dist/index.min.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "dependencies": {
+    "rbush": "^3.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/rbush": "^3.0.0",
+    "rollup": "^2.57.0",
+    "rollup-plugin-dts": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "build:js": "rollup -c",
+    "build": "rollup -c",
+    "prepublishOnly": "rollup -c"
+  }
+}
