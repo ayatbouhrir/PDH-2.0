@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-10T17:37:44.006057",
+  "target_sample_size": 87281,
+  "n_selected_points": 87281,
+  "saint_shape": [
+    87281,
+    10
+  ],
+  "tabpfn_shape": [
+    87281,
+    513
+  ],
+  "pseudo_y": {
+    "strategy": "quantiles_pfas_sum",
+    "n_classes": 3
+  },
+  "config": {
+    "target_k": 5,
+    "tabpfn_device": "cpu",
+    "tabpfn_n_estimators": 1,
+    "tabpfn_n_fold": 2,
+    "dbscan_min_samples": 10,
+    "dbscan_eps_quantile": 0.9,
+    "hdbscan_min_cluster_size": 50,
+    "hdbscan_min_samples": 10,
+    "propos_epochs": 80
+  },
+  "outputs": {
+    "metrics": "/Users/ayatbouhrir/Desktop/STAAGE/test/Projet/model/saint_tabpfn_compare_outputs/metrics/saint_tabpfn_metrics.csv",
+    "assignments_wide": "/Users/ayatbouhrir/Desktop/STAAGE/test/Projet/model/saint_tabpfn_compare_outputs/saint_tabpfn_assignments_wide.csv",
+    "assignments_long": "/Users/ayatbouhrir/Desktop/STAAGE/test/Projet/model/saint_tabpfn_compare_outputs/saint_tabpfn_assignments_long.csv",
+    "cluster_sizes": "/Users/ayatbouhrir/Desktop/STAAGE/test/Projet/model/saint_tabpfn_compare_outputs/metrics/saint_tabpfn_cluster_sizes.csv",
+    "saint_embedding": "/Users/ayatbouhrir/Desktop/STAAGE/test/Projet/model/saint_tabpfn_compare_outputs/embeddings/saint_87281.parquet",
+    "tabpfn_embedding": "/Users/ayatbouhrir/Desktop/STAAGE/test/Projet/model/saint_tabpfn_compare_outputs/embeddings/tabpfn_87281.parquet",
+    "full_saint_embedding": "/Users/ayatbouhrir/Desktop/STAAGE/test/Projet/model/full_outputs/embeddings/saint_full.parquet",
+    "full_tabpfn_embedding": "/Users/ayatbouhrir/Desktop/STAAGE/test/Projet/model/full_outputs/embeddings/tabpfn_full.parquet"
+  },
+  "duration_seconds": 2925.6240247500245
+}
