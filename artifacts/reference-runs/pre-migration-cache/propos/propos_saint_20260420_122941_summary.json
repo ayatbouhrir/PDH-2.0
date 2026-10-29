@@ -1,0 +1,13 @@
+{
+  "run_name": "propos_saint_20260420_122941",
+  "artifact_path": "/Users/ayatbouhrir/Desktop/STAAGE/test /Projet/model/.propos_cache/propos_saint_20260420_122941.pt",
+  "assignments_path": "/Users/ayatbouhrir/Desktop/STAAGE/test /Projet/model/.propos_cache/propos_saint_20260420_122941_assignments.parquet",
+  "k": 12,
+  "epochs": 80,
+  "metrics": {
+    "silhouette_score": 0.41360756754875183,
+    "davies_bouldin_index": 1.1652260078463446,
+    "calinski_harabasz_score": 18169.33448117128,
+    "training_loss": 0.24964505434036255
+  }
+}

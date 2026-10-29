@@ -1,0 +1,12 @@
+{
+  "run_name": "propos_saint_20260420_150423",
+  "artifact_path": "/Users/ayatbouhrir/Desktop/STAAGE/test /Projet/model/.propos_cache/propos_saint_20260420_150423.pt",
+  "assignments_path": "/Users/ayatbouhrir/Desktop/STAAGE/test /Projet/model/.propos_cache/propos_saint_20260420_150423_assignments.parquet",
+  "k": 12,
+  "epochs": 80,
+  "backend": "propos_master_tabular_adapter",
+  "metrics": {
+    "training_loss": 2.7334799766540527,
+    "backend": "propos_master_tabular_adapter"
+  }
+}
